@@ -85,7 +85,7 @@ export function PendingTasks(props) {
   
     return (
       <>
-        <div>Incomplete tasks: {incompleteTasksCount}</div>
+        {uniqueTasks.length > 0 && <div>Incomplete tasks: {incompleteTasksCount}</div>}
         {tasks}
       </>
     );
