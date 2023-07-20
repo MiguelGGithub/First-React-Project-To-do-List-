@@ -47,7 +47,22 @@ button:hover{
     width: 65vw;
     padding: 0.3rem 1rem;
 }
-
+.todo-input-form > div{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.todo-input-form{
+    margin-top: -1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.todo-input-form button{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
 /************************
 *   Styles
 ************************/
@@ -57,13 +72,42 @@ button:hover{
     border-radius: 25px;
 }
 .todo-pending-tasks{
-    font-size: 2rem;
+    font-size: 3rem;
+    text-align: center;
 }
-
+.todo-input-form button{
+    padding: 0.3rem 5rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 2px solid white;
+}
+.todo-task-inputter{
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.todo-task-name{
+    display: flex;
+    flex-direction: column;
+}
+.time-input-warning{
+    color: red;
+    text-align: center;
+}
+.invalid{
+    border: 1px solid red;
+}
+.task-time{
+    font-size: 0.7rem;
+}
 .todo-task{
     border: 3px solid white;
     border-radius: 5px;
+    padding: 1.5rem;
 }
+.todo-task span{
+    font-size: 1.3rem;
+}
+
 .completeTask, .deleteTask{
     padding: 0.1rem 0.5rem;
     border: none;
@@ -75,11 +119,61 @@ button:hover{
 .deleteTask{
     background-color: red;
 }
-.todo-task-inputter{
-    border: 1px solid white;
-    border-radius: 5px;
-}
+
 .complete{
     text-decoration: line-through;
-    color: red;
+    color: white;
+}
+.complete-task{
+    background-color: rgb(4, 126, 15);
+}
+.complete-button{
+    background-color: rgb(31, 31, 31);
+}
+
+
+
+
+.shake {
+    animation: shake 0.5s;
+    animation-iteration-count: 2s;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@media(min-width: 768px){
+    .todo-body{
+        width: 50vw;
+       
+    }
+    .todo-task{
+        width: 40vw;
+    }
+    .todo-task-inputter{
+        width: 35vw;
+    }
+}
+@media(min-width: 1440px){
+    .todo-body{
+        width: 35vw;
+       
+    }
+    .todo-task{
+        width: 30vw;
+    }
+    .todo-task-inputter{
+        width: 25vw;
+    }
 }

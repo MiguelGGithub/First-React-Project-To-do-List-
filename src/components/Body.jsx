@@ -17,8 +17,11 @@ export default function Body() {
   
     return (
       <div className="todo-body">
-        <PendingTasks taskArray={taskArray} setTaskArray={setTaskArray} />
+        <div className="todo-pending-tasks">
+          <h1>Task Tracker</h1>
+        </div>
         <InputTask taskArray={taskArray} setTaskArray={setTaskArray} />
+        <PendingTasks taskArray={taskArray} setTaskArray={setTaskArray} />
       </div>
     );
   }
