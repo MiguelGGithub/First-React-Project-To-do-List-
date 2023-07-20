@@ -11,7 +11,7 @@ export function InputTask(props) {
   const warningRef = useRef(null);
 
   React.useEffect(() => {
-    // Function to get the current time and day of the week
+    
     function getCurrentDayTime() {
       const currentTime = new Date();
       const options = { weekday: 'long', hour: 'numeric', minute: 'numeric', hour12: true, second: 'numeric' };
@@ -21,7 +21,7 @@ export function InputTask(props) {
 
     getCurrentDayTime();
 
-    // Update the current time and day of the week every minute
+    
     const interval = setInterval(getCurrentDayTime, 1000);
 
     return () => {
@@ -30,7 +30,7 @@ export function InputTask(props) {
   }, []);
 
   function isValidDayTime(input) {
-    // Regular expression to match valid day and time format
+    
     const dayTimeRegex = /^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Today)\s\d{1,2}(:\d{2})?\s?(AM|PM)?$/i;
     return dayTimeRegex.test(input);
   }
@@ -42,10 +42,10 @@ export function InputTask(props) {
       setTaskArray((prevTaskArray) => [...prevTaskArray, newTask]);
       setTaskInputValue('');
       setTimeInputValue('');
-      setIsTimeInputValid(true); // Reset the validity state
+      setIsTimeInputValid(true);
     } else {
       setIsTimeInputValid(false);
-      warningRef.current.classList.add('shake'); // Add "shake" class when the input is invalid
+      warningRef.current.classList.add('shake'); 
     }
   }
 
@@ -55,8 +55,8 @@ export function InputTask(props) {
 
   function getTimeInput(event) {
     setTimeInputValue(event.target.value);
-    setIsTimeInputValid(true); // Reset the validity state when the user types in the input field
-    warningRef.current.classList.remove('shake'); // Remove "shake" class when the user starts typing again
+    setIsTimeInputValid(true); 
+    warningRef.current.classList.remove('shake'); 
   }
 
   function stopEnter(event) {

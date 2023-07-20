@@ -28,7 +28,7 @@ export function PendingTasks(props) {
           ...prevTaskStatus,
           [task]: !prevTaskStatus[task],
         };
-        localStorage.setItem('taskStatus', JSON.stringify(updatedTaskStatus)); // Store taskStatus in localStorage
+        localStorage.setItem('taskStatus', JSON.stringify(updatedTaskStatus)); 
         return updatedTaskStatus;
       });
     }
