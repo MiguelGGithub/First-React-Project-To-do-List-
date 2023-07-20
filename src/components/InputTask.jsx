@@ -97,7 +97,7 @@ export function InputTask(props) {
         </div>
         {!isTimeInputValid && (
           <div ref={warningRef} className="time-input-warning shake">
-            Please enter a valid task or time (e.g., 'Friday 9PM' or 'Today 1:30 PM').
+            <h1>Please enter a valid task or time (e.g., `Friday 9PM` or `Today 1:30 PM`).</h1>
           </div>
         )}
         <button type="submit">Add Task</button>

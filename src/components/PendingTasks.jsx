@@ -5,27 +5,6 @@ export function PendingTasks(props) {
     const { taskArray, setTaskArray } = props;
     const [taskStatus, setTaskStatus] = useState({});
 
-    const [currentDayTime, setCurrentDayTime] = useState('');
-
-
-    useEffect(() => {
-      // Function to get the current time and day of the week
-      function getCurrentDayTime() {
-        const currentTime = new Date();
-        const options = { weekday: 'long', hour: 'numeric', minute: 'numeric', hour12: true, second: 'numeric' };
-        const formattedDayTime = currentTime.toLocaleString('en-US', options);
-        setCurrentDayTime(formattedDayTime);
-      }
-
-      getCurrentDayTime();
-
-      // Update the current time and day of the week every minute
-      const interval = setInterval(getCurrentDayTime, 1000);
-
-      return () => {
-        clearInterval(interval);
-      };
-    }, []);
   
     function deleteTask(task) {
       const array = [...taskArray];
