@@ -37,15 +37,27 @@ export function InputTask(props) {
 
   function storeInput(event) {
     event.preventDefault();
-    if (taskInputValue.trim() !== '' && isValidDayTime(timeInputValue.trim())) {
-      const newTask = { task: taskInputValue, time: timeInputValue.toUpperCase() };
-      setTaskArray((prevTaskArray) => [...prevTaskArray, newTask]);
-      setTaskInputValue('');
-      setTimeInputValue('');
-      setIsTimeInputValid(true);
+    const trimmedTask = taskInputValue.trim();
+    const trimmedTime = timeInputValue.trim().toUpperCase();
+  
+    if (trimmedTask !== '' && isValidDayTime(trimmedTime)) {
+      const isDuplicateTask = props.taskArray.some((taskObj) =>
+        taskObj.task.toLowerCase() === trimmedTask.toLowerCase()
+      );
+  
+      if (isDuplicateTask) {
+        setIsTimeInputValid(false);
+        warningRef.current.classList.add('shake');
+      } else {
+        const newTask = { task: trimmedTask, time: trimmedTime };
+        setTaskArray((prevTaskArray) => [...prevTaskArray, newTask]);
+        setTaskInputValue('');
+        setTimeInputValue('');
+        setIsTimeInputValid(true);
+      }
     } else {
       setIsTimeInputValid(false);
-      warningRef.current.classList.add('shake'); 
+      warningRef.current.classList.add('shake');
     }
   }
 
@@ -64,6 +76,7 @@ export function InputTask(props) {
       event.preventDefault();
     }
   }
+  
 
   return (
     <>
@@ -97,7 +110,7 @@ export function InputTask(props) {
         </div>
         {!isTimeInputValid && (
           <div ref={warningRef} className="time-input-warning shake">
-            Please enter a valid task or time (e.g., 'Friday 9PM' or 'Today 1:30 PM')
+            Either your task or time (e.g., 'Friday 9PM') format is invalid, or your task is a duplicate (be specific)
           </div>
         )}
         <button type="submit">Add Task</button>

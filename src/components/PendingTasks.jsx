@@ -6,19 +6,25 @@ export function PendingTasks(props) {
     const [taskStatus, setTaskStatus] = useState({});
 
   
-    function deleteTask(task) {
+    function deleteTask(taskObj) {
+      if (taskStatus[taskObj.task]) {
+        const updatedTaskStatus = { ...taskStatus };
+        updatedTaskStatus[taskObj.task] = false;
+        setTaskStatus(updatedTaskStatus);
+      }
+  
+      setTaskStatus((prevTaskStatus) => {
+        const updatedTaskStatus = { ...prevTaskStatus };
+        delete updatedTaskStatus[taskObj.task];
+        localStorage.setItem('taskStatus', JSON.stringify(updatedTaskStatus));
+        return updatedTaskStatus;
+      });
+  
       const array = [...taskArray];
-      const i = array.indexOf(task);
+      const i = array.indexOf(taskObj);
       if (i !== -1) {
         array.splice(i, 1);
         setTaskArray(array);
-  
-        setTaskStatus((prevTaskStatus) => {
-          const updatedTaskStatus = { ...prevTaskStatus };
-          delete updatedTaskStatus[task];
-          localStorage.setItem('taskStatus', JSON.stringify(updatedTaskStatus));
-          return updatedTaskStatus;
-        });
       }
     }
   
@@ -28,7 +34,7 @@ export function PendingTasks(props) {
           ...prevTaskStatus,
           [task]: !prevTaskStatus[task],
         };
-        localStorage.setItem('taskStatus', JSON.stringify(updatedTaskStatus)); 
+        localStorage.setItem('taskStatus', JSON.stringify(updatedTaskStatus));
         return updatedTaskStatus;
       });
     }
