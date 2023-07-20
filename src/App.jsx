@@ -6,7 +6,16 @@ function App() {
   return (
     <>
       <Body />
-      <p className='copyright'>Made By MiguelGGithub / Adriancito#0343 © 2023</p>
+      <div>
+      <a
+        className='copyright'
+        href="https://github.com/MiguelGGithub"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Made By MiguelGGithub / Adriancito#0343 © 2023
+      </a>
+      </div>
     </>
     
   )

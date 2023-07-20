@@ -111,13 +111,16 @@ button:hover{
 .completeTask, .deleteTask{
     padding: 0.1rem 0.5rem;
     border: none;
+    font-size: 0.8rem;
 }
 .completeTask{
     background-color: rgb(1, 155, 22);
+ 
 }
 
 .deleteTask{
     background-color: red;
+
 }
 
 .complete{
@@ -158,8 +161,14 @@ button:hover{
     margin-top: 0rem;
     margin-bottom: 5rem;
     text-align: center;
+    text-decoration: none;
+    color: white;
 }
-
+body > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 @media(min-width: 768px){
     .todo-body{
         width: 50vw;
@@ -170,6 +179,9 @@ button:hover{
     }
     .todo-task-inputter{
         width: 35vw;
+    }
+    .completeTask, .deleteTask{
+        font-size: 1rem;
     }
 }
 @media(min-width: 1440px){
@@ -182,5 +194,8 @@ button:hover{
     }
     .todo-task-inputter{
         width: 20vw;
+    }
+    .completeTask, .deleteTask{
+        font-size: 1.3rem;
     }
 }
