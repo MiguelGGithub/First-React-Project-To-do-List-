@@ -167,13 +167,13 @@ button:hover{
 }
 @media(min-width: 1440px){
     .todo-body{
-        width: 35vw;
+        width: 30vw;
        
     }
     .todo-task{
-        width: 30vw;
+        width: 25vw;
     }
     .todo-task-inputter{
-        width: 25vw;
+        width: 20vw;
     }
 }
