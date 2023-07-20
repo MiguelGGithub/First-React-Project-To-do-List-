@@ -153,6 +153,12 @@ button:hover{
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
+.copyright{
+    font-size: 1rem;
+    margin-top: 0rem;
+    text-align: center;
+}
+
 @media(min-width: 768px){
     .todo-body{
         width: 50vw;
